@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block style %}
+<style>
+    .blog-header {
+        text-align: center;
+        margin-top: 2rem;
+    }
+    .blog-header h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+    .blog-section {
+        margin-top: 2rem;
+    }
+    .blog-post {
+        margin-bottom: 1.5rem;
+    }
+    .blog-post h2 {
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+    .blog-post time {
+        font-size: 0.875rem;
+        color: gray;
+    }
+    .subscription {
+        padding: 1rem;
+        background-color: #f8f9fa;
+        border-radius: 0.5rem;
+    }
+    .subscription h5 {
+        font-weight: bold;
+    }
+    .subscription p {
+        margin: 0;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="blog-header">
+    	{% if video %}
+    		<h1>Videos</h1>
+    	{% else %}
+        	<h1>BLOG</h1>
+    	{% endif %}
+    </div>
+    <div class="row blog-section">
+        <div class="col-md-8">
+            {% for year_month, blogs in grouped_blogs.items %}
+                <div class="year-label">
+                    <span class="badge bg-secondary fs-3">{{ year_month.0 }} {{ year_month.1 }}</span>
+                </div>
+                {% for blog in blogs %}
+                    <div class="blog-post mt-5">
+                        <time datetime="{{ blog.date }}">{{ blog.date }}</time>
+                        <h3><a href="{% url 'blog:detail' blog.id %}">{{ blog.title }}</a></h3>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+
+        <div class="col-md-4">
+            <div class="subscription">
+                <h5>Obuna Bo'ling</h5>
+                <p>Yangi maqola, maruza va darslarimni <a href="https://t.me/ProgressOfS" target="_blank">@ProgressOfS</a> telegram kanalida topishingiz mumkin.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

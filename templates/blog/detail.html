@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+	{% block title %} Post - {{ blog.title }} {% endblock %}
+
+	{% block content %}
+	    <p>{{ blog.body|safe }}</p>
+	{% endblock %}
