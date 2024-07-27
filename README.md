@@ -1,8 +1,9 @@
 # Blog Website
 
-This is a blog website created using Django. It allows users to create, edit, and view blog posts.
+This is a personal blog website built using Django. This is a flexible blog website for you. You can publish various blogs, video blogs. And you can customize it yourself.
 
 To start using the project, follow these steps:
+
 
 1. Make migrations:
 ```
