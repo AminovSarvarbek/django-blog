@@ -8,15 +8,15 @@ To start using the project, follow these steps:
 ```
 python manage.py makemigrations
 ```
-3. Apply migrations:
-4. ```
+2. Apply migrations:
+```
 python manage.py migrate
 ```
-5. Create a superuser to access the admin panel:
+3. Create a superuser to access the admin panel:
 ```
 python manage.py createsuperuser
 ```
-6. Run the development server:
+4. Run the development server:
 ```
 python manage.py runserver
 ```
